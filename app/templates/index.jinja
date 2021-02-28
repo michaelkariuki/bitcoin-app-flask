@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if title %}
+    <title>{{ title }} - TestApp</title>
+    {%else%}    
+    <title>{{ title }} - TestApp</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid d-flex vh-100 justify-content-center align-items-center">
+        <div>
+            <h1 class="header-main text-center" style="text-decoration: underline;">{{ msg }}</h1>
+        
+            <ul class="list-group mx-auto">
+                {% for key, value in data.items() %}
+                    <li class=" list-group-item w-100">
+                        <span class="font-weight-bold" >
+                              {{ key }}
+                        </span>
+                        <span class="badge badge-dark badge-pill float-right">
+                            {{ value }}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
